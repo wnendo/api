@@ -45,6 +45,10 @@ xmlns:th="http://www.thymeleaf.org">
 			</tr>
 		</table>
 	</br>
+	<th>
+	<h4>Contagem de veículos não vendidos</h4>
+		<td th:object="${soma}">Veículos não vendidos - [[${soma}]] </td>
+	</th>
 	<th><h4>Contagem de veículos por ano de fabricação</h4>
 		<td th:object="${anos90}">Anos 90: [[${anos90}]] - </td>
 		<td th:object="${anos2000}">Anos 2000: [[${anos2010}]] - </td>
