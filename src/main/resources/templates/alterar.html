@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta name = "viewport" content="width=device-width. initial-scale=1.0"/>
+<title>Controle de Veículos</title>
+</head>
+	<body>
+	</br>
+	
+	<div>Cadastro de Veículos
+		</br>
+		<form action="#" th:action="@{/alterado}" method="POST" th:object="${registro}">
+		<input type="hidden" th:field="*{id}"/>
+			<p>Modelo: <input type="text"th:field="*{modelo}"/></p>
+			<p>Marca: <input type="text" th:field="*{marca}"/></p>
+			<p>Descrição: <input type="text" th:field="*{descricao}"/></p>
+			<p>Ano: <input type="text" th:field="*{ano}"/></p>
+			<p>Vendido: <select th:field="*{vendido}">
+						<option th:value="true">Sim</option>
+						<option th:value="false">Não</option>
+						</select></p>
+			<input type="submit" value="Alterar"/>
+		</form>
+		</br>
+		<form action="#" th:action="@{/veiculos/}" method="GET">
+			<input type="submit" value="Retornar"/>
+		</form>
+	</div>
+	
+	</br>
+	</br>
+
+</body>
+</html>

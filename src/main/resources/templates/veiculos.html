@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta name = "viewport" content="width=device-width. initial-scale=1.0"/>
+<title>Controle de Veículos</title>
+</head>
+	<body>
+	<div><h3>Cadastro de Veículos</h3>
+		<form action="#" th:action="@{/salvar}" method="POST" th:object="${registro}">
+			<p>Modelo<input type="text"th:field="*{modelo}"/></p>
+			<p>Marca<input type="text" th:field="*{marca}"/></p>
+			<p>Descrição<input type="text" th:field="*{descricao}"/></p>
+			<p>Ano<input type="text" th:field="*{ano}"/></p>
+			<input type="submit" value="Cadastrar"/>
+		</form>
+	</div>
+	</br>
+	</br>
+	<div><h3>Listagem de Veículos</h3>
+		</br>
+		<table>
+			<th>
+				<td>Id: </td>
+				<td>Modelo: </td>
+				<td>Marca: </td>
+				<td>Descrição: </td>
+				<td>Ano: </td>
+				<td>Criado em: </td>
+				<td>Alterado em: </td>
+				<td></td>
+			</th>
+			<tr th:each="lista : ${lista}">
+			<td></td>
+				<td>[[${lista.id}]]</td>
+				<td>[[${lista.modelo}]]</td>
+				<td>[[${lista.marca}]]</td>
+				<td>[[${lista.descricao}]]</td>
+				<td>[[${lista.ano}]]</td>
+				<td>[[${lista.criado}]]</td>
+				<td>[[${lista.alterado}]]</td>
+				<td><a th:href="@{/veiculos/alterar/{id}(id=${lista.id})}">Editar</a></td>
+				<td><a th:href="@{/veiculos/{id}(id=${lista.id})}">Exlcuir</a></td>
+			</tr>
+		</table>
+	</br>
+	<th><h4>Contagem de veículos por ano de fabricação</h4>
+		<td th:object="${anos90}">Anos 90: [[${anos90}]] - </td>
+		<td th:object="${anos2000}">Anos 2000: [[${anos2010}]] - </td>
+		<td th:object="${anos2010}">Anos 2010: [[${anos2020}]] - </td>
+		<td th:object="${anos}">Acima de 2020: [[${anos}]]</td>
+	</th>	
+	</div>
+	</body>
+</html>
